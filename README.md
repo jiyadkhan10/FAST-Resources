@@ -2,7 +2,7 @@
 
 # Description
 
-Lectures of Differnet Courses that I have Studied in Fast During the Period of 2019 to 2023. <br />
+Lectures of Differnet Courses that I have Studied in FAST NUCES During the Period of 2019 to 2023. <br />
 
 # Courses
 
