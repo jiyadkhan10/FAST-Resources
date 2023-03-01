@@ -1,0 +1,11 @@
+/home/pi/log2021.txt
+/ESky.txt
+/root/System.txt
+/root/bin/apt-get/
+/home/Desktop/hello.cpp
+/home/Desktop/Assignments/Assignment01/Test.cpp
+/home/Desktop/Assignments/Assignment02/Test.cpp
+/root/bin/ls.cpp
+/usr/dev/echo.txt
+/usr/lib/mkdir.txt
+/usr/lib/df.txt

@@ -1,0 +1,6 @@
+/
+home ESky.txt root usr
+pi Desktop System.txt bin dev lib
+log2021.txt hello.cpp Assignments apt-get ls.cpp echo.txt mkdir.txt df.txt
+Assignment01 Assignment02 Assignment01 Assignment02
+Test.cpp Test.cpp Test.cpp Test.cpp

@@ -1,0 +1,88 @@
+
+
+BF= Height(Right sub tree) - Height (Left sub tree) 
+
+int Height(Tree* r)
+{
+	if(r==NULL)
+		return -1;
+	int lh=Height(r->left);
+	int rh=Height(r->right);
+	
+	if(lh>rh)
+		return lh + 1;
+	else
+		return rh + 1;
+}
+
+AVL* SingleRotateWithRight( AVL* K1 ) //leftRotation
+{
+	AVL* K2;
+	K2 = K1->Right; // K1: node whose balance factor is violated
+	K1->Right = K2->Left;
+	K2->Left = K1;
+	return K2;
+}
+
+AVL* SingleRotateWithLeft( AVL* K1 ) //RightRotation
+{
+	AVL* K2;
+	K2 = K1->left; // K1: node whose balance factor is violated
+	K1->Left = K2->Right;
+	K2->Right = K1;
+	return K2;
+}
+
+AVL* DoubleRotateWithLeft( AVL* K3 ) // left right rotation
+{  
+     /* LL rotation between K1 and K2 */
+     K3->Left = SingleRotateWithRight( K3->Left );//leftRotation
+     /* RR rotation between K3 and K2 */
+     return SingleRotateWithLeft( K3 );//RightRotation
+}
+
+AVL* DoubleRotateWithRight( AVL* K1) // Right left rotation
+{
+    /* RR rotation between K3 and K2 */
+    K1->Right = SingleRotateWithLeft( K1->Right );//RightRotation
+    /* LL rotation between K1 and K2 */
+    return SingleRotateWithRight( K1 );//leftRotation
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+sturct AVLTree
+{
+	int Element;
+	AVLTree* left,right;
+	int height;
+}
+AvlTree* Insert( int X, AvlTree* T ) 
+{
+	if ( T == NULL ) 
+	{ /* Create and return a one-node tree */
+		T = new AvlNode;
+		T->Element = X;
+		T->Left = T->Right = NULL;
+	}
+	else if( X < T->Element ) 
+	{
+		T->Left = Insert( X, T->Left );
+		if( Height( T->Left ) - Height( T->Right ) == 2 )
+			if( Height( T->Left->Left ) - Height( T->Left->Right ) == 1 )
+				T = SingleRotateWithLeft( T ); // Right rotation
+			else
+				T = DoubleRotateWithLeft( T ); // left right rotation
+	}
+	else if( X > T->Element ) 
+	{
+		T->Right = Insert( X, T->Right );
+		if( Height( T->Left ) - Height( T->Right ) == -2 )
+			if( Height( T->Right->Left ) - Height( T->Right->Right ) == -1 )
+				T = SingleRotateWithRight( T ); // Left rotation
+			else
+				T = DoubleRotateWithRight( T ); // Right left rotation
+	} /* Else X is in the tree already; we'll do nothing */
+
+return T;
+}		

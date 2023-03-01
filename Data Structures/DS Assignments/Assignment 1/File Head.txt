@@ -1,0 +1,35 @@
+#include<iostream>
+#include<fstream>
+#include<string>
+#include<cstring>
+
+
+
+
+using namespace std;
+
+class read_file
+{
+public:
+	void read()
+	{
+		string temp;
+		fstream fout;
+		fout.open("Students_Dataset.csv",ios::in);
+		while (!fout.eof())
+		{
+			getline(fout, temp, '\n');
+			cout << temp << endl;;
+
+
+		}
+	}
+};
+
+
+int main()
+{
+	read_file a;
+	a.read();
+	return 0;
+}

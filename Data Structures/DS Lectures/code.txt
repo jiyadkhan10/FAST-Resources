@@ -1,0 +1,117 @@
+#include<iostream>
+int g_One=1;
+void func(int* rpInt);
+int main()
+{
+  int nvar=2;
+  int* pvar=&nvar;
+  func(pvar);
+  std::cout<<*pvar<<std::endl;
+  return 0;
+}
+void func(int* rpInt)
+{
+  rpInt=&g_One;
+}
+__________________________________
+#include<iostream>
+int g_One=1;
+void func(int*& rpInt);
+int main()
+{
+  int nvar=2;
+  int* pvar=&nvar;
+  func(pvar);
+  std::cout<<*pvar<<std::endl;
+  return 0;
+}
+void func(int*& rpInt)
+{
+  rpInt=&g_One;
+}
+_________________________________________
+
+#include<iostream>
+using namespace std;
+class BST
+{
+    public:
+    int data;
+    BST* left,*right;
+};
+void insertion(BST*& r,int value);
+void deleteNode(int num, BST*& nodePtr);
+void makeDeletion(BST*& nodePtr);
+int main()
+{    
+    BST* R=NULL;
+    insertion(R,5);
+    insertion(R,8);
+    insertion(R,3);
+    insertion(R,12);
+    insertion(R,9);
+    //deleteNode(3,R);
+    //deleteNode(12,R);
+    //deleteNode(8,R);
+    //deleteNode(5,R);
+    return 0;
+}
+void insertion(BST*& r,int value)
+{
+    if(r==NULL)
+    {
+        r=new BST();
+        r->data=value;
+        r->left=r->right=NULL;
+    }
+    else if(r->data>value)
+    {
+        insertion(r->left,value);
+    }
+    else if(r->data<value)
+    {
+        insertion(r->right,value);
+    }
+    else
+    {
+        cout<<"duplication"<<endl;
+    }
+}
+void makeDeletion(BST*& nodePtr)
+{
+    BST* tempNodePtr;
+    if (nodePtr->right == NULL) //leaf node & left child
+    {
+        tempNodePtr = nodePtr;
+        nodePtr = nodePtr->left;
+        delete tempNodePtr;
+    }
+    else if (nodePtr->left == NULL)// right child
+    {
+        tempNodePtr = nodePtr;
+        nodePtr = nodePtr->right;
+        delete tempNodePtr;
+    }
+    else
+    { // two child
+        tempNodePtr = nodePtr->right;
+        while (tempNodePtr->left)
+        {
+            tempNodePtr = tempNodePtr->left;
+        }
+        nodePtr->data = tempNodePtr->data;
+        deleteNode(tempNodePtr->data, nodePtr->right);
+
+    }
+}
+void deleteNode(int num, BST*& nodePtr)
+{
+    if (nodePtr == NULL)
+        cout << num << " not found.\n";
+    else if (num < nodePtr->data)
+        deleteNode(num, nodePtr->left);
+    else if (num > nodePtr->data)
+        deleteNode(num, nodePtr->right);
+    else
+        makeDeletion(nodePtr);
+}

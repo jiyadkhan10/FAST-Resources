@@ -1,0 +1,4 @@
+/
+home ESky.txt root usr
+pi Desktop System.txt bin dev lib
+log2021.txt hello.cpp apt-get ls.cpp echo.txt mkdir.txt df.txt

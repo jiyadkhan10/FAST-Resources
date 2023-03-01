@@ -1,0 +1,95 @@
+
+
+void deleteNode(int num, TreeNode *&nodePtr)
+{
+	if (nodePtr == NULL) // node does not exist in the tree
+	cout << num <<" not found.\n";
+	else if (num < nodePtr->value)
+		{
+			deleteNode(num, nodePtr->left); // find in left subtree
+			if( Height( nodePtr->left ) - Height( nodePtr->right ) == -2 )
+				if( Height( nodePtr->right->left ) - Height( nodePtr->right->right ) <= 0 )
+					SingleRotateWithright(nodePtr); // left rotation
+				else
+					DoubleRotateWithright(nodePtr); // right left rotation
+			
+		}
+	else if (num > nodePtr->value)
+		{
+			nodePtr->right=deleteNode(num, nodePtr->right); // find in right subtree
+			if( Height( nodePtr->left ) - Height( nodePtr->right ) == 2 )
+				if( Height( nodePtr->left->left ) - Height( nodePtr->left->right ) >= 0 )
+					SingleRotateWithleft( nodePtr ); // right rotation
+				else
+					DoubleRotateWithleft( nodePtr ); // left right rotation
+			
+		}
+	else // num == nodePtr->value i.e. node is found
+		makeDeletion(nodePtr); // actually deletes node from BST
+	
+	
+}
+
+void makeDeletion(TreeNode*& nodePtr)
+{
+	node* tempNodePtr;
+	if (nodePtr->right == NULL) //leaf node & left child
+	{
+		tempNodePtr = nodePtr;
+		nodePtr = nodePtr->left;
+		delete tempNodePtr;
+	}
+	else if (nodePtr->left == NULL)// right child
+	{
+		tempNodePtr = nodePtr;
+		nodePtr = nodePtr->right;
+		delete tempNodePtr;
+	}
+	else
+	{ // two child
+		tempNodePtr = nodePtr->right;
+		while (tempNodePtr->left)
+		{
+			tempNodePtr = tempNodePtr->leftt;
+		}
+		nodePtr->value = tempNodePtr->value;
+		deleteNode(tempNodePtr->value, nodePtr->right);
+	}
+}
+
+
+void SingleRotateWithright( TreeNode*& K1 ) //leftRotation
+{
+	AVL* K2;
+	K2 = K1->right; // K1: node whose balance factor is violated
+	K1->right = K2->left;
+	K2->left = K1;
+	K1=K2;
+}
+
+void SingleRotateWithleft( TreeNode*& K1 ) //rightRotation
+{
+	AVL* K2;
+	K2 = K1->left; // K1: node whose balance factor is violated
+	K1->left = K2->right;
+	K2->right = K1;
+	K1=K2;
+}
+
+void DoubleRotateWithleft( TreeNode*& K3 ) // left right rotation
+{  
+     /* LL rotation between K1 and K2 */
+     SingleRotateWithright( K3->left );//leftRotation
+     /* RR rotation between K3 and K2 */
+     SingleRotateWithleft( K3 );//rightRotation
+}
+
+void DoubleRotateWithright( TreeNode*& K1) // right left rotation
+{
+    /* RR rotation between K3 and K2 */
+    SingleRotateWithleft( K1->right );//rightRotation
+    /* LL rotation between K1 and K2 */
+    return SingleRotateWithright( K1 );//leftRotation
+}
+
+
