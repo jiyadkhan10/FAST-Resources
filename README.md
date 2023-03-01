@@ -6,15 +6,15 @@ Lectures of Differnet Courses that I have Studied in Fast During the Period of 2
 
 # Courses
 
-1. Advanced Statistics <br />
-2. Artificial Intelligence <br />
-3. Big Data Analytics <br />
-4. Computer Organization and Assembly Language <br />
-5. Comuter Networks <br />
-6. Data Analysis and Visualization <br />
-7. Data Mining <br />
-8. Data Structures <br />
-9. Data Warehousing & Business Intelligence <br />
+01. Advanced Statistics <br />
+02. Artificial Intelligence <br />
+03. Big Data Analytics <br />
+04. Computer Organization and Assembly Language <br />
+05. Comuter Networks <br />
+06. Data Analysis and Visualization <br />
+07. Data Mining <br />
+08. Data Structures <br />
+09. Data Warehousing & Business Intelligence <br />
 10. Database Systems <br />
 11. Design and Analysis of Algorithms <br />
 12. Digital Logic Designs <br />
