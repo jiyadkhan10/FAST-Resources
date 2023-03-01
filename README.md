@@ -9,8 +9,8 @@ Lectures of Differnet Courses that I have Studied in FAST NUCES During the Perio
 01. Advanced Statistics <br />
 02. Artificial Intelligence <br />
 03. Big Data Analytics <br />
-04. Computer Organization and Assembly Language <br />
-05. Comuter Networks <br />
+04. Computer Networks <br />
+05. Computer Organization and Assembly Language <br /> 
 06. Data Analysis and Visualization <br />
 07. Data Mining <br />
 08. Data Structures <br />
