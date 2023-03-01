@@ -1,0 +1,292 @@
+<html>
+	<head>
+		<title> Student Admission Form</title>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="//static.mailerlite.com/js/w/button.min.js?veb3acdd46bf692c067c6a9fe9fbc07d6"></script>
+
+<script>
+    function previewFile(input){
+        var file = $("input[type=file]").get(0).files[0];
+ 
+        if(file){
+            var reader = new FileReader();
+ 
+            reader.onload = function(){
+                $("#previewImg").attr("src", reader.result);
+            }
+ 
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+
+<style>
+body{
+  background-color: rgb(148, 139, 165);
+  transition:background-color 0.5s ease;
+}
+
+button {
+  background-color: #31ad6f; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.heading {
+background-color: black;
+color: rgb(150, 47, 119);
+text-align: center;
+margin: 10px 400px;
+}
+
+</style>
+
+</head>
+
+	<body>
+		<center>
+			<div class= "heading">
+			<h1> Hamarey Bachchey <br> Student Admission Form</h1>
+		    </div>
+		</center>
+
+<br><br><br>
+
+	<form action="backend.php" method="post">
+
+		<b style = "font-size:20px;"> Student Information: </b>
+
+		<br>
+		<br>
+		<br>
+
+		<center>
+		<img id="previewImg" src="/examples/images/transparent.png" alt="Photo" width="100">
+	    </center>
+
+		<br>
+		<br>
+		<br>
+
+		<b style = "font-size:20px;"> Upload Student Image: </b>
+		
+		<br>
+		<br>
+		
+		<input type="file" name="photo" onchange="previewFile(this);" required> 
+
+
+		<br>
+		<br>
+		<br>
+		
+		<b style = "font-size:20px;">Students Name</b> 
+		<br>
+		<br>
+		<input type = "text", name = "Name", value="", placeholder= "Full name" required>  
+		
+		<br>
+		<br> 
+		<br>
+
+		<b style = "font-size:20px;">Student's Age</b> 
+
+		<br>
+		<br>
+
+		Age: <input type = "number", name = "Age", placeholder= "Age" required>  
+
+		
+		<br>
+		<br> 
+		<br>
+
+		<b style = "font-size:20px;">Student's Gender</b> 
+
+		<br>
+		<br>
+
+			Gender: <input type = "radio", name = "Gender", value = "Male"> Male 
+					<input type = "radio", name = "Gender", value = "Female"> Female
+					<input type = "radio", name = "Gender", value = "Other"> Other
+
+		<br>
+		<br>
+
+		<b style = "font-size:20px;">Registered Class</b> 
+
+		<br>
+		<br>
+
+		Class_ID: <input type = "text", name = "Course", placeholder= "Course Name" required>  
+
+		
+		<br>
+		<br> 
+		<br>
+
+		<hr style = "border-color: black;">
+
+		<br>
+
+		<b style = "font-size:20px;"> Father's Information: </b>
+
+		<br>
+		<br>
+		<br>
+
+		<b style = "font-size:20px;">Father's Name</b> 
+		<br>
+		<br>
+	
+		<input type = "text", name = "FullName", placeholder= "Full name" required>  
+
+		<br>
+		<br>
+
+		<b style = "font-size:20px;">Father's CNIC Number</b> 
+
+		<br>
+		<br>
+
+		<input type="text" name="CNIC-Number" placeholder="XXXXX-XXXXXXX-X" size="15" required>
+
+		<br>
+		<br>
+
+		<b style = "font-size:20px;">Father's Contact Information</b> 
+		<br>
+		<br>
+
+		<input type = "text", name = "Mobile-Number", placeholder= "Mobile-Number" required>   <input type = "text", name = "Email", placeholder= "Email">  
+
+		<br>
+		<br>
+
+		<b style = "font-size:20px;">Father's Address</b> 
+
+		<br>
+		<br>
+
+		<textarea name="faddress" size="15" rows = "4" cols = "50" required> House # - Street # - Block - City </textarea>
+
+		<br>
+		<br>
+
+		<hr style = "border-color:black;">
+
+		<br>
+
+		<b style = "font-size:20px;"> Mother's Information: </b>
+
+		<br>
+		<br>
+		<br>
+
+		<b style = "font-size:20px;">Mother's Name</b> 
+		<br>
+		<br>
+	
+		<input type = "text", name = "mfullName", placeholder= "Full name" required>  
+
+		<br>
+		<br>
+
+		<b style = "font-size:20px;">Mother's CNIC Number</b> 
+
+		<br>
+		<br>
+
+		<input type="text" name="mCNIC-Number" placeholder="XXXXX-XXXXXXX-X" size="15" required>
+
+		<br>
+		<br>
+
+		<b style = "font-size:20px;">Mother's Contact Information</b> 
+		<br>
+		<br>
+
+		<input type = "text", name = "mMobile-Number", placeholder= "Mobile Number" required>   <input type = "text", name = "mEmail", placeholder= "Email">  
+
+		<br>
+		<br>
+
+		<b style = "font-size:20px;">Mother's Address</b> 
+
+		<br>
+		<br>
+
+		<textarea name="mAddress" size="15" rows = "4" cols = "50" required> House # - Street # - Block - City </textarea>
+
+		<br>
+		<br>
+
+		<hr style = "border-color:black;">
+
+		<br>
+
+		<b style = "font-size:20px;"> Additional Information: </b>
+
+		<br><br>
+
+		<b style = "font-size:20px;">Guardian's CNIC Number</b> 
+
+		<br>
+		<br>
+
+		<input type="text" name="GCNIC" placeholder="XXXXX-XXXXXXX-X" size="15" required>
+
+		<br>
+		<br>
+
+		<hr style = "border-color:black;">
+
+		<br>
+
+		<b style = "font-size:20px;"> For Staff Only </b>
+
+		<br>
+		<br>
+
+		Challan Number: <input type="text" name="Challan" placeholder="Challan Number" size="50" required>
+
+		<br>
+		<br>
+
+		Fee Amount:<input type="text" name="Fee" placeholder="Fee Amount" size="20" required>
+
+		<br>
+		<br>
+
+		Discount:<input type="text" name="Discount" placeholder="Discount" size="20" required>
+
+		<br>
+		<br>
+
+		Status:<input type = "radio", name = "Status", value = "Full Paid"> Full Paid 
+		<input type = "radio", name = "Status", value = "Not Paid"> Not Paid
+
+		<br>
+		<br>
+
+		Date: <input type="date" name="Date" required>
+
+		<br>
+		<br>
+		<br>
+		
+
+		<button type="submit" value="Submit" class = "button"> Submit </button>
+		<button type="reset" value="Reset" class = "button"> Reset </button>
+
+	</form>
+	</body>	
+</html>

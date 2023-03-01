@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<title>Staff Detail Form</title>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="//static.mailerlite.com/js/w/button.min.js?veb3acdd46bf692c067c6a9fe9fbc07d6"></script>
+
+<script>
+    function previewFile(input){
+        var file = $("input[type=file]").get(0).files[0];
+ 
+        if(file){
+            var reader = new FileReader();
+ 
+            reader.onload = function(){
+                $("#previewImg").attr("src", reader.result);
+            }
+ 
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+
+<style>
+body{
+  background-color: rgb(148, 139, 165);
+  transition:background-color 0.5s ease;
+}
+
+button {
+  background-color: #31ad6f; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.heading {
+background-color: black;
+color: rgb(150, 47, 119);
+text-align: center;
+margin: 10px 400px;
+}
+
+</style>
+
+</head>
+
+	<body>
+		<center>
+			<div class= "heading">
+			<h1> Hamarey Bachchey <br> Staff Detail Form</h1>
+		    </div>
+		</center>
+
+<br><br><br>
+
+	<form action="backend4.php" method="post">
+
+		<b style = "font-size:20px;"> Staff Information: </b>
+
+		<br>
+		<br>
+		<br>
+
+		Fullname: <input type = "text", name = "FullName", placeholder= "Fullname" required>  
+
+        <br>
+		<br> 
+
+        CNIC Number: <input type="text" name="CNIC-Number" placeholder="XXXXX-XXXXXXX-X" size="15" required>
+
+        <br>
+		<br>
+
+        Student ID of children(if any enrolled): <input type="text" name="CIS" placeholder="001, 002, etc." size="50">
+
+        <br>
+		<br>
+
+        Mobile Number: <input type = "text", name = "Mobile-Number", placeholder= "Mobile Number" required>
+
+        <br>
+		<br>
+
+        Email: <input type = "text", name = "Email", placeholder= "abc@email.com" required>
+
+        <br>
+		<br>
+
+		Guardian's Address: 
+        
+        <br>
+        <br>
+
+        <textarea name="Address" size="15" rows = "4" cols = "50" required> House # - Street # - Block - City </textarea>
+
+        <br>
+        <br>
+
+		<button type="submit" value="Submit" class = "button"> Submit </button>
+		<button type="reset" value="Reset" class = "button"> Reset </button>
+
+	</form>
+	</body>	
+</html>
